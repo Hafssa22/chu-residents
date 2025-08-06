@@ -1,0 +1,403 @@
+/* ==============================================
+   CSS pour la page Assistant Interne - CHU
+   ============================================== */
+
+/* Variables CSS pour la cohérence des couleurs */
+:root {
+    --primary-blue: #2563eb;
+    --primary-blue-hover: #1d4ed8;
+    --primary-blue-light: #3b82f6;
+    --secondary-blue: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-light: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Styles pour le header (harmonisation avec Navigation.js) */
+.header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-medium);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header nav ul.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 2rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.header nav ul.nav-links li {
+    margin: 0;
+}
+
+.header nav ul.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.header nav ul.nav-links a:hover,
+.header nav ul.nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.header nav ul.nav-links a.nav-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Conteneur principal de la page Assistant */
+.assistant-page {
+    min-height: 100vh;
+    background:#f9f9f9;
+    padding: 2rem 0;
+}
+
+/* Styles pour le composant ChatBOTFAQ */
+.chatbot-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background: #f5f3f0;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+    overflow: visible;
+}
+
+/* Titre principal */
+.chatbot-title {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: black;
+    position: relative;
+    font-family: 'Georgia', serif;
+}
+
+.chatbot-title::after {
+    display: none;
+}
+
+/* Conteneur des FAQ */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Éléments FAQ individuels */
+.faq-item {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: none;
+    overflow: visible;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+}
+
+.faq-item::before {
+    display: none;
+}
+
+.faq-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: gray;
+}
+
+.faq-item:hover {
+    box-shadow: none;
+    transform: none;
+    border-color: transparent;
+}
+
+.faq-item:hover::before {
+    display: none;
+}
+
+.faq-item.active {
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+.faq-item.active::before {
+    display: none;
+}
+
+/* Bouton question */
+.faq-question {
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #212020;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative;
+    display: block;
+    line-height: 1.6;
+    font-family: 'Georgia', serif;
+    margin-bottom: 1rem;
+}
+
+.faq-question:hover {
+    color: #6b5d48;
+    background: transparent;
+    transform: none;
+}
+
+.faq-question::before {
+    display: none;
+}
+
+.faq-question::after {
+    display: none;
+}
+
+.faq-item.active .faq-question::after {
+    display: none;
+}
+
+.faq-item.active .faq-question::before {
+    display: none;
+}
+
+/* Réponse FAQ */
+.faq-answer {
+    padding: 0;
+    color: #8b7355;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    animation: fadeIn 0.4s ease-out;
+    border-top: none;
+    background: transparent;
+    position: relative;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.faq-answer::before {
+    display: none;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+/* Animation simple pour l'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation d'apparition améliorée */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+}
+
+/* Animation d'apparition améliorée */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+}
+
+/* Styles pour différents types de questions */
+.faq-item:nth-child(1) .faq-question::before { content: '⚙️'; }  /* Désactivation */
+.faq-item:nth-child(2) .faq-question::before { content: '📄'; }  /* PDF */
+.faq-item:nth-child(3) .faq-question::before { content: '📊'; }  /* KPI */
+.faq-item:nth-child(4) .faq-question::before { content: '🔄'; }  /* Migration */
+.faq-item:nth-child(5) .faq-question::before { content: '🔍'; }  /* Recherche */
+
+/* Effet de survol spécial pour chaque type */
+.faq-item:nth-child(1):hover { border-left: 4px solid #f59e0b; }
+.faq-item:nth-child(2):hover { border-left: 4px solid #10b981; }
+.faq-item:nth-child(3):hover { border-left: 4px solid #8b5cf6; }
+.faq-item:nth-child(4):hover { border-left: 4px solid #ef4444; }
+.faq-item:nth-child(5):hover { border-left: 4px solid #06b6d4; }
+
+/* Badge pour les questions importantes */
+.faq-item.important::before {
+    content: '⚠️';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+/* Styles pour les messages d'attention minimalistes */
+.attention-message {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: #d4771b;
+    display: block;
+    font-size: 0.9rem;
+    box-shadow: none;
+    position: relative;
+    overflow: visible;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.attention-message::before {
+    content: '⚠ ';
+    font-size: 1rem;
+    animation: none;
+}
+
+.attention-message::after {
+    display: none;
+}
+
+/* Animations pour les messages d'attention */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Section d'aide supplémentaire */
+.help-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, #e0f2fe 100%);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.help-section h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.help-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-button {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Responsive Design minimaliste */
+@media (max-width: 768px) {
+    .header nav ul.nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+
+    .chatbot-container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .chatbot-title {
+        font-size: 1.75rem;
+    }
+
+    .faq-question {
+        font-size: 0.95rem;
+    }
+
+    .faq-answer {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .assistant-page {
+        padding: 1rem 0;
+    }
+
+    .chatbot-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .chatbot-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .faq-container {
+        gap: 2rem;
+    }
+}

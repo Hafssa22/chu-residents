@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend/HOSIX-AGiRH.iml" filepath="$PROJECT_DIR$/backend/HOSIX-AGiRH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MONProjet.iml" filepath="$PROJECT_DIR$/.idea/MONProjet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka-consumer/untitled/untitled.iml" filepath="$PROJECT_DIR$/kafka-consumer/untitled/untitled.iml" />
+    </modules>
+  </component>
+</project>
